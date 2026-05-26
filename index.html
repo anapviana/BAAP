@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>BAAP Mobilidade</title>
+
+  <meta
+    name="description"
+    content="Plataforma inteligente de mobilidade universitária com monitoramento de ônibus em tempo real e sistema seguro de caronas compartilhadas."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --red:#E00000;
+      --blue:#1A2C49;
+      --green:#50C878;
+      --light:#F0F0F0;
+      --white:#FFFFFF;
+      --text:#2b2b2b;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:var(--white);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header{
+      width:100%;
+      background:var(--blue);
+      color:var(--white);
+      padding:20px 8%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .logo{
+      font-size:1.5rem;
+      font-weight:700;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:24px;
+    }
+
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      font-weight:500;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:var(--green);
+    }
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:60px 8%;
+      background:linear-gradient(
+        135deg,
+        #1A2C49 0%,
+        #243c63 100%
+      );
+      color:white;
+      gap:40px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:3.5rem;
+      line-height:1.1;
+      margin-bottom:24px;
+    }
+
+    .hero-text span{
+      color:var(--green);
+    }
+
+    .hero-text p{
+      font-size:1.1rem;
+      margin-bottom:32px;
+      max-width:600px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:600;
+      transition:.3s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:var(--red);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#b80000;
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:white;
+      color:var(--blue);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-image{
+      flex:1;
+      min-width:300px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-card{
+      background:white;
+      width:350px;
+      border-radius:24px;
+      padding:24px;
+      color:var(--text);
+      box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .status{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+
+    .status-item{
+      background:var(--light);
+      padding:12px;
+      border-radius:12px;
+      width:48%;
+      text-align:center;
+    }
+
+    .status-item h3{
+      color:var(--green);
+      font-size:1.4rem;
+    }
+
+    .map{
+      background:#dcdcdc;
+      border-radius:16px;
+      height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:600;
+      color:#555;
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      color:var(--blue);
+      margin-bottom:10px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card-icon{
+      font-size:2.5rem;
+      margin-bottom:16px;
+    }
+
+    .card h3{
+      color:var(--blue);
+      margin-bottom:12px;
+    }
+
+    .about{
+      background:var(--light);
+    }
+
+    .about-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-text h2{
+      color:var(--blue);
+      font-size:2.5rem;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      margin-bottom:16px;
+    }
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .metric{
+      background:white;
+      padding:24px;
+      border-radius:16px;
+      text-align:center;
+    }
+
+    .metric h3{
+      color:var(--red);
+      font-size:2rem;
+    }
+
+    footer{
+      background:var(--blue);
+      color:white;
+      padding:50px 8%;
+      text-align:center;
+    }
+
+    footer h3{
+      margin-bottom:16px;
+      font-size:1.8rem;
+    }
+
+    footer p{
+      margin-bottom:10px;
+    }
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:2.7rem;
+      }
+
+      .about-content{
+        grid-template-columns:1fr;
+      }
+
+      nav ul{
+        gap:12px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      header{
+        flex-direction:column;
+        gap:16px;
+      }
+
+      .hero-text h1{
+        font-size:2.2rem;
+      }
+
+      .hero-card{
+        width:100%;
+      }
+
+      .metrics{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">
+      🚍 BAAP Mobilidade
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Caronas</a></li>
+        <li><a href="#">Monitoramento</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        Mobilidade universitária
+        <span>inteligente</span>
+      </h1>
+
+      <p>
+        A BAAP Mobilidade conecta estudantes a ônibus em tempo real
+        e caronas universitárias seguras, promovendo economia,
+        sustentabilidade e acessibilidade.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#" class="btn btn-primary">
+          Explorar Plataforma
+        </a>
+
+        <a href="#" class="btn btn-secondary">
+          Saiba Mais
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <div class="hero-card">
+
+        <div class="status">
+
+          <div class="status-item">
+            <h3>12</h3>
+            <p>Linhas Ativas</p>
+          </div>
+
+          <div class="status-item">
+            <h3>24</h3>
+            <p>Caronas</p>
+          </div>
+
+        </div>
+
+        <div class="map">
+          📍 Mapa em tempo real
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Funcionalidades</h2>
+
+      <p>
+        Soluções inteligentes para facilitar sua mobilidade.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">🚌</div>
+
+        <h3>Monitoramento em Tempo Real</h3>
+
+        <p>
+          Visualize ônibus, horários e lotação atualizada
+          diretamente no mapa.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">🚗</div>
+
+        <h3>Caronas Seguras</h3>
+
+        <p>
+          Compartilhe viagens apenas com estudantes
+          verificados institucionalmente.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">🌱</div>
+
+        <h3>Sustentabilidade</h3>
+
+        <p>
+          Reduza emissão de CO₂ incentivando
+          deslocamentos compartilhados.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">🔒</div>
+
+        <h3>Segurança</h3>
+
+        <p>
+          Compartilhamento de itinerário em tempo real
+          e validação de identidade acadêmica.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="about">
+
+    <div class="about-content">
+
+      <div class="about-text">
+
+        <h2>Sobre a BAAP</h2>
+
+        <p>
+          A BAAP Mobilidade nasceu com o propósito de transformar
+          o deslocamento universitário através da tecnologia.
+        </p>
+
+        <p>
+          Nossa missão é integrar mobilidade urbana inteligente,
+          segurança e colaboração em uma única plataforma.
+        </p>
+
+        <p>
+          Inspirados por soluções modernas de smart cities,
+          buscamos reduzir barreiras de acesso à educação.
+        </p>
+
+      </div>
+
+      <div class="metrics">
+
+        <div class="metric">
+          <h3>99,5%</h3>
+          <p>Disponibilidade</p>
+        </div>
+
+        <div class="metric">
+          <h3>&lt;2s</h3>
+          <p>Latência</p>
+        </div>
+
+        <div class="metric">
+          <h3>100%</h3>
+          <p>Responsivo</p>
+        </div>
+
+        <div class="metric">
+          <h3>24/7</h3>
+          <p>Monitoramento</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <h3>🚍 BAAP Mobilidade</h3>
+
+    <p>
+      Mobilidade inteligente para universidades.
+    </p>
+
+    <p>
+      © 2026 - Todos os direitos reservados.
+    </p>
+
+  </footer>
+
+</body>
+</html>
