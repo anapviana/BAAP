@@ -1,0 +1,148 @@
+.monitoramento-hero{
+
+    min-height:70vh;
+
+    background:url('../assets/images/monitoramento-bg.png');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.monitoramento-hero .overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+
+    color:white;
+}
+
+.hero-content h1{
+
+    font-size:3.5rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+
+    font-size:1.2rem;
+    max-width:700px;
+}
+
+.status-geral{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    background:#f7f8fc;
+}
+
+.status-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.status-card span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#E00000;
+}
+
+.mapa-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.mapa-container img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.linha-topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.status{
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:.8rem;
+}
+
+.online{
+    background:#50C878;
+}
+
+.lotacao{
+
+    margin-top:20px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    color:white;
+}
+
+.baixa{
+    background:#50C878;
+}
+
+.media{
+    background:#f1a500;
+}
+
+.alta{
+    background:#E00000;
+}
+
+.beneficios-monitoramento{
+
+    background:#f7f8fc;
+}

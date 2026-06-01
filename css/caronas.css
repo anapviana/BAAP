@@ -1,0 +1,288 @@
+/* HERO */
+
+.carona-hero{
+
+    min-height:70vh;
+
+    background-image:url('../assets/images/caronas-bg.png');
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+}
+
+.hero-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+
+    max-width:800px;
+
+    padding:0 20px;
+}
+
+.hero-content h1{
+
+    font-size:3.5rem;
+
+    margin-bottom:20px;
+}
+
+.hero-content p{
+
+    font-size:1.2rem;
+
+    margin-bottom:30px;
+}
+
+/* ESTATÍSTICAS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:-60px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+.stat-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.stat-card h3{
+
+    color:#E00000;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+}
+
+.stat-card p{
+
+    color:#666;
+}
+
+/* BUSCA */
+
+.buscar-carona{
+
+    text-align:center;
+
+    background:#F8F9FC;
+}
+
+.buscar-carona p{
+
+    color:#666;
+
+    margin-bottom:30px;
+}
+
+.buscar-carona form{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+}
+
+.buscar-carona input{
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    min-width:250px;
+
+    font-size:1rem;
+}
+
+.buscar-carona button{
+
+    border:none;
+
+    cursor:pointer;
+}
+
+/* CARONAS */
+
+.caronas-disponiveis{
+
+    background:white;
+}
+
+.carona-card{
+
+    border-top:4px solid #50C878;
+}
+
+.perfil{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.perfil img{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+}
+
+.perfil h3{
+
+    margin-bottom:5px;
+
+    color:#1A2C49;
+}
+
+.perfil span{
+
+    color:#666;
+
+    font-size:.9rem;
+}
+
+.rota{
+
+    background:#f5f5f5;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+}
+
+.rota p{
+
+    margin-bottom:8px;
+}
+
+.carona-card p{
+
+    margin-bottom:10px;
+}
+
+.carona-card .btn{
+
+    width:100%;
+
+    margin-top:15px;
+}
+
+/* COMO FUNCIONA */
+
+.como-funciona{
+
+    background:#F8F9FC;
+}
+
+.como-funciona .card{
+
+    text-align:center;
+}
+
+.como-funciona h3{
+
+    color:#1A2C49;
+
+    margin-bottom:15px;
+}
+
+/* CTA */
+
+.cta{
+
+    background:#1A2C49;
+
+    color:white;
+
+    text-align:center;
+}
+
+.cta h2{
+
+    color:white;
+
+    margin-bottom:20px;
+}
+
+.cta p{
+
+    margin-bottom:30px;
+
+    font-size:1.1rem;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .hero-content h1{
+
+        font-size:2.5rem;
+    }
+
+    .stats{
+
+        margin-top:30px;
+    }
+
+    .buscar-carona form{
+
+        flex-direction:column;
+    }
+
+    .buscar-carona input{
+
+        width:100%;
+    }
+}

@@ -1,0 +1,74 @@
+.banner-sobre{
+    height:350px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+    url('../assets/images/hero-bg.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:white;
+}
+
+.banner-sobre h1{
+    font-size:3.5rem;
+}
+
+.sobre-content{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+
+    align-items:center;
+}
+
+.sobre-text h2{
+    color:var(--blue);
+    margin-bottom:20px;
+}
+
+.sobre-text p{
+    margin-bottom:15px;
+    line-height:1.8;
+}
+
+.valores{
+    margin-top:60px;
+}
+
+.valores-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.valor-card{
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    text-align:center;
+
+    border-top:5px solid var(--red);
+}
+
+.valor-card h3{
+    color:var(--blue);
+    margin-bottom:10px;
+}
